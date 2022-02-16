@@ -1,8 +1,4 @@
 import os
-# from dotenv import load_dotenv
-# from flask_simplemde import SimpleMDE
-
-# load_dotenv()
 
 
 class Config:
@@ -19,9 +15,6 @@ class Config:
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
     
-    #simplemde config 
-    # SIMPLEMDE_JS_IIFE = True
-    # SIMPLEMDE_USE_CDN = True
 
 
 class ProdConfig(Config):

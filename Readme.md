@@ -1,6 +1,6 @@
-# FLASK BLOG
+# WEB BLOG
 
-### **This project was done using Python 3.6  and Flask.** 
+### **This project was done using Python 3.9  and Flask.** 
 
 
 # DESCRIPTION
@@ -9,31 +9,26 @@ This is a for personal blogging website where you can create and share your opin
 
 ## User Story
 
-- Users can see the post other people have published.
+- Users can post thier blogs.
 
-- Users/Writers can sign in to the blog.
+- they can sign in to the blog.
 
-- Users can register on the website.
+- they can register on the website.
 
--  Users can create a blog from the application.
+-  they can create a blog from the application.
 
-- Users can receive a welcoming email once they sign up.
+- they can view the posts they have created in their profile page..
 
-- Users can view the posts they have created in their profile page..
+- they can comment on the different posts. 
 
-- Users can comment on the different posts. 
-
-- Users can submit a post in any category. 
-
-- Users can view the different categories. 
 
 
 # **SETUP/INSTALLATION.**
 ## Prerequisites
 
-To work with FLASK BLOG App you need to have some few prerequisites.
+To work with the BLOG App you need to have some few requirements.
 
-- Python3.6
+- Python3
 
 - pip
 
@@ -54,9 +49,9 @@ To work with FLASK BLOG App you need to have some few prerequisites.
 
 3. To get to use **WEB BLOG** first you need to get to the WEB BLOG repository. 
 
-Link:-> ```https://github.com/josylad/Flask-Blog```
+Link:-> ```https://github.com/Lenus254/personal_blog```
 
-4. From there you can access FLASK BLOG App.
+4. From there you can access personal_blog App.
 
 5. **Clone** the project.
 

@@ -3,11 +3,9 @@ from flask import (render_template, url_for, flash,redirect, request, abort, Blu
 from flask_login import current_user, login_required, logout_user
 from app import db
 import secrets
-# from PIL import Image
 from app.requests import get_quote
 from app.models import Post, User, Comment
 from app.posts.forms import PostForm, CommentForm
-# from flask_simplemde import SimpleMDE
 from ..main import views
 from .import posts
 
@@ -116,7 +114,6 @@ def new_comment(post_id):
         comment = Comment(comment=form.comment.data, fullname=form.name.data,  post_id = post_id )
         db.session.add(comment)
         db.session.commit()
-        # comments = Comment.query.all()
         flash('You comment has been created!', 'success')
         return redirect(url_for('posts.post', post_id=post.id))
     myposts = Post.query.order_by(Post.posted_date.desc())
@@ -157,6 +154,6 @@ def comment(comment_id):
 def getquotes():
 
     quotes = get_quote()
-    # title = name
+    
     
     return render_template('base.html', quotes=quotes)

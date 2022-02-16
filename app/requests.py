@@ -20,6 +20,6 @@ def get_quote():
             quote = quote_details_response.get('quote')
             permalink = quote_details_response.get('permalink')
             
-            quote_object = Quote(id, author, quote, permalin)
+            quote_object = Quote(id, author, quote, permalink)
     print(quote_object)
     return quote_object

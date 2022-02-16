@@ -21,7 +21,7 @@ class User(UserMixin,db.Model):
     comments = db.relationship('Comment',backref = 'user',lazy = "dynamic")
     bio = db.Column(db.String(255))
     password_secure = db.Column(db.String(255))
-    # profile_pic_path = db.Column(db.String())
+    
     
     
     @property
@@ -47,7 +47,6 @@ class Post(db.Model):
     title = db.Column(db.String(255))
     posted_date = db.Column(db.DateTime, default=datetime.utcnow)
     content = db.Column(db.Text)
-    # image = db.Column(db.String(225), default='default.jpg')
     category = db.Column(db.String(255), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     comments = db.relationship('Comment', backref='post', lazy=True)

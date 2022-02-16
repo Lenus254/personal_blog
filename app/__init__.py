@@ -52,12 +52,8 @@ def create_app(config_name):
     
     
 
-    # setting config
-    # from .requests import configure_request
-
     # configure UploadSet
     configure_uploads(app,photos)
 
-    # Will add the views and forms
 
     return app

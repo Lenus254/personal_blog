@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content%} 
+<div class="container">
+    <p>This is a Flask Powered blogging platform. </p>
+</div>
+<div class="quotes">
+
+    <h3>Random Quote</h3>
+        <p> {{quotes.quote}}</p>
+        <p> {{quotes.author}}</p>                
+
+    </div>
+{% endblock content %}

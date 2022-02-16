@@ -2,6 +2,7 @@ from datetime import datetime
 from app import db, login_manager
 from . import db
 from flask_login import UserMixin
+from werkzeug.security import generate_password_hash,check_password_hash
 
 
 @login_manager.user_loader
@@ -9,21 +10,32 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-class User(db.Model, UserMixin):
+class User(UserMixin,db.Model):
+
     __tablename__ = 'users'
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(225), unique=True, nullable=False)
-    fullname = db.Column(db.String(), nullable=False)
-    email = db.Column(db.String(255), unique= True, nullable= False, index = True)
+    
+    id = db.Column(db.Integer,primary_key = True)
+    username = db.Column(db.String(255),index = True)
+    email = db.Column(db.String(255),unique = True,index = True)
+    posts = db.relationship('Post',backref = 'user',lazy="dynamic")
+    comments = db.relationship('Comment',backref = 'user',lazy = "dynamic")
     bio = db.Column(db.String(255))
-    image = db.Column(db.String(225), nullable=False, default='default.jpg')
-    password = db.Column(db.String(60), nullable=False)
-    # facebook = db.Column(db.String())
-    # twitter = db.Column(db.String())
-    # github = db.Column(db.String())
-    # linkedin = db.Column(db.String())
-    posts = db.relationship('Post', backref='author', lazy=True)
-    comments = db.relationship('Comment', backref='author', lazy=True)
+    password_secure = db.Column(db.String(255))
+    # profile_pic_path = db.Column(db.String())
+    
+    
+    @property
+    def password(self):
+        raise AttributeError('You cannot read the password attribute')
+
+    @password.setter
+    def password(self, password):
+        self.password_secure = generate_password_hash(password)
+
+
+    def verify_password(self,password):
+        return check_password_hash(self.password_secure,password)
+
 
     
     def __repr__(self):
@@ -32,13 +44,14 @@ class User(db.Model, UserMixin):
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(255), nullable=False)
-    posted_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
-    content = db.Column(db.Text, nullable=False)
-    image = db.Column(db.String(225), default='default.jpg')
+    title = db.Column(db.String(255))
+    posted_date = db.Column(db.DateTime, default=datetime.utcnow)
+    content = db.Column(db.Text)
+    # image = db.Column(db.String(225), default='default.jpg')
     category = db.Column(db.String(255), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     comments = db.relationship('Comment', backref='post', lazy=True)
+    
 
     
     def __repr__(self):
@@ -48,9 +61,9 @@ class Post(db.Model):
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     fullname = db.Column(db.String(255))
-    comment = db.Column(db.Text, nullable=False)
-    posted_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    comment = db.Column(db.Text, )
+    posted_date = db.Column(db.DateTime, default=datetime.utcnow, )
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), )
     post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
 
     

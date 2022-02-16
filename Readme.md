@@ -55,53 +55,40 @@ Link:-> ```https://github.com/Lenus254/personal_blog```
 
 5. **Clone** the project.
 
-6. Once you done with cloning and project is on your device.
+6. cd into project folder
 
-7. get into project folder (cd into project).
+7. Install Flask and other package dependencies
 
-8. Installing Flask and other Modules
+    `pip install Flask`
+    `pip install Flask-Bootstrap`
+    `pip install Flask-Script`
+    `pip install -r requirements.txt`
 
-    `python3.6 -m pip install Flask`
-    `python3.6 -m pip install Flask-Bootstrap`
-    `python3.6 -m pip install Flask-Script`
-    `python3.6 -m pip install -r requirements.txt`
-
-9. On your **bash** terminal Run the command:- 
+9. On your  terminal Run the command:- 
 
 ```
   $ chmod +x start.sh
   $ ./start.sh
 ```
 OR run: 
-* $ python3.6 run.py runserver
+* $ python manage.py runserver
 
 # Technologies Used
 
-* Python 3.6
+* Python 3.9
 * Flask
 * Postgresql
-* MDBootstrap
 
 
 # AUTHOR
 
-* Joseph Adediji 
+* Linus Cheruiyot
 
-## Support and Contact
----
-
--Twitter: [@Josylad](https://twitter.com/josylad/)
-
--Blog: [Joseph on Medium](https://medium.com/@josylad/)
-
--Email Address: markupmediang [@] gmail.com
-
--github-username: Josylad
 
 ## License
 MIT License
 
-Copyright (c) 2019 Joseph Adediji
+Copyright (c) 2022 Lenus254
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -120,4 +107,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-Copyright (c) 202022. Linus Cheruiyot
